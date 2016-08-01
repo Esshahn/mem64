@@ -1,0 +1,99 @@
+body
+{
+  background-color: #eeeeee;
+  font-family: Hevetica, Arial, Garamond, Sans-Serif;
+}
+
+.container
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0px 10px 0px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.c1-head
+{
+  font-weight: bold;
+  padding: 10px;
+  background-color: #4bf;
+  order: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 14%;
+  min-height: 5%;
+}
+
+.c2-head
+{
+  font-weight: bold; 
+  padding: 10px;
+  background-color: #4bf;
+  order: 2;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 14%;
+}
+
+.c3-head
+{
+  font-weight: bold;
+  font-family: Hevetica, Arial, Garamond, Sans-Serif;
+  padding: 10px;
+  background-color: #4bf;
+  order: 3;
+  flex-grow: 10;
+}
+
+
+.c1
+{
+  font-family: Courier;
+  padding: 10px;
+  background-color: #eee;
+  order: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 14%;
+  border-right: 1px dotted #888;
+  border-bottom: 1px dotted #888;
+}
+
+.c2
+{
+  font-family: Courier;
+  padding: 10px;
+  background-color: #eee;
+  order: 2;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 14%;
+  border-right: 1px dotted #888;
+  border-bottom: 1px dotted #888;
+}
+
+.c3
+{
+  padding: 10px;
+  background-color: #fff;
+  order: 3;
+  flex-grow: 10;
+  border-bottom: 1px dotted #888;
+}
+
+.cspan
+{
+  padding: 20px;
+  margin: 6px 0px 4px 0px;
+  background-color: #ffffaa;
+  order: 10;
+  flex-grow:1;
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+footer
+{
+  padding: 40px;
+}
