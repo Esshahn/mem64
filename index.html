@@ -2437,22 +2437,22 @@ ga('send', 'pageview');
                     Bit #3: 1 = Light pen signal arrived.
                 </li>
                 <li>
-                    Bit #7: 1 = An event, that may generate an interrupt, occurred.
+                    Bit #7: 1 = An event (or more events), that may generate an interrupt, occurred and it has not been (not all of them have been) acknowledged yet.
                 </li>
             </ul>
             Write bits:
             <ul>
                 <li>
-                    Bit #0: 0 = Acknowledge raster interrupt.
+                    Bit #0: 1 = Acknowledge raster interrupt.
                 </li>
                 <li>
-                    Bit #1: 0 = Acknowledge sprite-background collision interrupt.
+                    Bit #1: 1 = Acknowledge sprite-background collision interrupt.
                 </li>
                 <li>
-                    Bit #2: 0 = Acknowledge sprite-sprite collision interrupt.
+                    Bit #2: 1 = Acknowledge sprite-sprite collision interrupt.
                 </li>
                 <li>
-                    Bit #3: 0 = Acknowledge light pen interrupt.
+                    Bit #3: 1 = Acknowledge light pen interrupt.
                 </li>
             </ul>
         </div>
@@ -3355,7 +3355,7 @@ ga('send', 'pageview');
         <div class="c1">$DC10-$DCFF
         </div>
         <div class="c2">56336-56575</div>
-        <div class="c3">CIA#1 register images (repeated every $10 bytes).
+        <div class="c3">CIA#1 register images (repeated every $10, 16 bytes).
         </div>
     </div>
     <div class="cspan">$DD00-$DDFF, 56576-56831
@@ -3646,7 +3646,7 @@ ga('send', 'pageview');
         <div class="c1">$DD10-$DDFF
         </div>
         <div class="c2">56592-56831</div>
-        <div class="c3">CIA#2 register images (repeated every $10 bytes).
+        <div class="c3">CIA#2 register images (repeated every $10, 16 bytes).
         </div>
     </div>
     <div class="cspan">$DE00-$DEFF, 56832-57087
@@ -3657,7 +3657,7 @@ ga('send', 'pageview');
         <div class="c1">$DE00-$DEFF
         </div>
         <div class="c2">56832-57087</div>
-        <div class="c3">I/O Area #1, memory mapped registers or machine code routines of optional external devices (256 bytes). Layouta and contents depend on the actual device.
+        <div class="c3">I/O Area #1, memory mapped registers or machine code routines of optional external devices (256 bytes). Layout and contents depend on the actual device.
         </div>
     </div>
     <div class="cspan">$DF00-$DFFF, 57088-57343
@@ -3718,9 +3718,11 @@ ga('send', 'pageview');
 </body>
 <footer>
 Changelog:<br/>
+2016-08-31: Corrected wrong value for $D019, minor typo and consistency fixes (thanks to Joe Forster/STA)<br />
 2016-08-01: Initial release, replaced old table structure by CSS flexbox, visual overhaul, added minor missing info<br/>
 <br/>
 <br/>
-Memory map based on <a href="http://sta.c64.org/cbm64mem.html">http://sta.c64.org/cbm64mem.html</a> and converted by <a href="http://www.awsm.de">awsm.de</a> // <a href="https://twitter.com/awsm9000">@awsm9000</a>
+Memory map based on <a href="http://sta.c64.org/cbm64mem.html">http://sta.c64.org/cbm64mem.html</a> and converted by <a href="http://www.awsm.de">awsm.de</a> // <a href="https://twitter.com/awsm9000">@awsm9000</a>.<br />
+If you find errors or like to contribute to the memory map, please contact <a href="https://twitter.com/awsm9000">@awsm9000</a>.
 </footer>
 </html>
