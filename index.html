@@ -1769,7 +1769,6 @@ ga('send', 'pageview');
     </div>
     <div class="cspan">$0300-$03FF, 768-1023
     </div>
-    </div>
     <div class="container">
         <div class="c1">$0300-$0301
         </div>
@@ -2053,7 +2052,6 @@ ga('send', 'pageview');
     <div class="cspan">$C000-$CFFF, 49152-53247
         <br>Upper RAM area
     </div>
-    </div>
     <div class="container">
         <div class="c1">$C000-$CFFF
         </div>
@@ -2063,7 +2061,6 @@ ga('send', 'pageview');
     </div>
     <div class="cspan">$D000-$DFFF, 53248-57343
         <br>I/O Area
-    </div>
     </div>
     <div class="container">
         <div class="c1">$D000-$DFFF
@@ -2659,7 +2656,6 @@ ga('send', 'pageview');
     <div class="cspan">$D400-$D7FF, 54272-55295
         <br>SID; audio
     </div>
-    </div>
     <div class="container">
         <div class="c1">$D400-$D401
         </div>
@@ -3082,7 +3078,6 @@ ga('send', 'pageview');
     <div class="cspan">$D800-$DBFF, 55296-56319
         <br>Color RAM
     </div>
-    </div>
     <div class="container">
         <div class="c1">$D800-$DBE7
         </div>
@@ -3098,7 +3093,6 @@ ga('send', 'pageview');
     </div>
     <div class="cspan">$DC00-$DCFF, 56320-56575
         <br>CIA#1; inputs (keyboard, joystick, mouse), datasette, IRQ control
-    </div>
     </div>
     <div class="container">
         <div class="c1">$DC00
@@ -3360,7 +3354,6 @@ ga('send', 'pageview');
     </div>
     <div class="cspan">$DD00-$DDFF, 56576-56831
         <br>CIA#2; serial bus, RS232, NMI control
-    </div>
     </div>
     <div class="container">
         <div class="c1">$DD00
@@ -3652,7 +3645,6 @@ ga('send', 'pageview');
     <div class="cspan">$DE00-$DEFF, 56832-57087
         <br>I/O Area #1
     </div>
-    </div>
     <div class="container">
         <div class="c1">$DE00-$DEFF
         </div>
@@ -3662,7 +3654,6 @@ ga('send', 'pageview');
     </div>
     <div class="cspan">$DF00-$DFFF, 57088-57343
         <br>I/O Area #2
-    </div>
     </div>
     <div class="container">
         <div class="c1">$DF00-$DFFF
@@ -3674,7 +3665,7 @@ ga('send', 'pageview');
     <div class="cspan">$E000-$FFFF, 57344-65535
         <br>KERNAL ROM
     </div>
-    </div>
+
     <div class="container">
         <div class="c1">$E000-$FFFF
         </div>
@@ -3690,9 +3681,529 @@ ga('send', 'pageview');
             </ul>
         </div>
     </div>
+
+
+<!-- start -->
+
+<div class="cspan">$FF81-$FFF3, 65409-65523
+        <br>Kernal functions
+    </div>
+    <div class="container">
+        <div class="c1">$FF81
+        </div>
+        <div class="c2">65409</div>
+        <div class="c3">SCINIT
+            <br/>Initialize VIC; restore default input/output to keyboard/screen; clear screen; set PAL/NTSC switch and interrupt timer.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: $FF5B.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF84  
+
+        </div>
+        <div class="c2">65412</div>
+        <div class="c3">IOINIT
+            <br/>Initialize CIA's, SID volume; setup memory configuration; set and start interrupt timer.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A, X.
+            <br/>Real address: $FDA3.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF87
+        </div>
+        <div class="c2">65415</div>
+        <div class="c3">RAMTAS
+            <br/>Clear memory addresses $0002-$0101 and $0200-$03FF; run memory test and set start and end address of BASIC work area accordingly; set screen memory to $0400 and datasette buffer to $033C.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: $FD50.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF8A
+        </div>
+        <div class="c2">65418</div>
+        <div class="c3">RESTOR 
+            <br/>Fill vector table at memory addresses $0314-$0333 with default values.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: –
+            <br/>Real address: $FD15.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF8D
+        </div>
+        <div class="c2">65421</div>
+        <div class="c3">VECTOR
+            <br/>Copy vector table at memory addresses $0314-$0333 from or into user table.
+            <br/>Input: Carry: 0 = Copy user table into vector table, 1 = Copy vector table into user table; X/Y = Pointer to user table.
+            <br/>Output: –
+            <br/>Used registers: A, Y.
+            <br/>Real address: $FD1A.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF90
+        </div>
+        <div class="c2">65424</div>
+        <div class="c3">SETMSG 
+            <br/>Set system error display switch at memory address $009D.
+            <br/>Input: A = Switch value.
+            <br/>Output: –
+            <br/>Used registers: –
+            <br/>Real address: $FE18.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF93
+        </div>
+        <div class="c2">65427</div>
+        <div class="c3">LSTNSA 
+            <br/>Send LISTEN secondary address to serial bus. (Must call LISTEN beforehands.)
+            <br/>Input: A = Secondary address.
+            <br/>Output: –
+            <br/>Used registers: A.
+            <br/>Real address: $EDB9.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF96
+        </div>
+        <div class="c2">65430</div>
+        <div class="c3">TALKSA 
+            <br/>Send TALK secondary address to serial bus. (Must call TALK beforehands.)
+            <br/>Input: A = Secondary address.
+            <br/>Output: –
+            <br/>Used registers: A.
+            <br/>Real address: $EDC7.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF99
+        </div>
+        <div class="c2">65433</div>
+        <div class="c3">MEMBOT
+            <br/>Save or restore start address of BASIC work area.
+            <br/>Input: Carry: 0 = Restore from input, 1 = Save to output; X/Y = Address (if Carry = 0).
+            <br/>Output: X/Y = Address (if Carry = 1).
+            <br/>Used registers: X, Y.
+            <br/>Real address: $FE25.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF9C
+        </div>
+        <div class="c2">65436</div>
+        <div class="c3">MEMTOP
+            <br/>Save or restore end address of BASIC work area.
+            <br/>Input: Carry: 0 = Restore from input, 1 = Save to output; X/Y = Address (if Carry = 0).
+            <br/>Output: X/Y = Address (if Carry = 1).
+            <br/>Used registers: X, Y.
+            <br/>Real address: $FE34.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FF9F
+        </div>
+        <div class="c2">65439</div>
+        <div class="c3">SCNKEY
+            <br/>Query keyboard; put current matrix code into memory address $00CB, current status of shift keys into memory address $028D and PETSCII code into keyboard buffer.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: $EA87.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFA2
+        </div>
+        <div class="c2">65442</div>
+        <div class="c3">SETTMO
+            <br/>Unknown. (Set serial bus timeout.)
+            <br/>Input: A = Timeout value.
+            <br/>Output: –
+            <br/>Used registers: –
+            <br/>Real address: $FE21.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFA5
+        </div>
+        <div class="c2">65445</div>
+        <div class="c3">IECIN
+            <br/>Read byte from serial bus. (Must call TALK and TALKSA beforehands.)
+            <br/>Input: –
+            <br/>Output: A = Byte read.
+            <br/>Used registers: A.
+            <br/>Real address: $EE13.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFA8
+        </div>
+        <div class="c2">65448</div>
+        <div class="c3">IECOUT
+            <br/>Write byte to serial bus. (Must call LISTEN and LSTNSA beforehands.)
+            <br/>Input: A = Byte to write.
+            <br/>Output: –
+            <br/>Used registers: –
+            <br/>Real address: $EDDD.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFAB
+        </div>
+        <div class="c2">65451</div>
+        <div class="c3">UNTALK
+            <br/>Send UNTALK command to serial bus.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A.
+            <br/>Real address: $EDEF.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFAE
+        </div>
+        <div class="c2">65454</div>
+        <div class="c3">UNLSTN
+            <br/>Send UNLISTEN command to serial bus.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A.
+            <br/>Real address: $EDFE.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFB1
+        </div>
+        <div class="c2">65457</div>
+        <div class="c3">LISTEN
+            <br/>Send LISTEN command to serial bus.
+            <br/>Input: A = Device number.
+            <br/>Output: –
+            <br/>Used registers: A.
+            <br/>Real address: $ED0C.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFB4
+        </div>
+        <div class="c2">65460</div>
+        <div class="c3">TALK
+            <br/>Send TALK command to serial bus.
+            <br/>Input: A = Device number.
+            <br/>Output: –
+            <br/>Used registers: A.
+            <br/>Real address: $ED09.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFB7
+        </div>
+        <div class="c2">65463</div>
+        <div class="c3">READST
+            <br/>Fetch status of current input/output device, value of ST variable. (For RS232, status is cleared.)
+            <br/>Input: –
+            <br/>Output: A = Device status.
+            <br/>Used registers: A.
+            <br/>Real address: $FE07.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFBA
+        </div>
+        <div class="c2">65466</div>
+        <div class="c3">SETLFS
+            <br/>Set file parameters.
+            <br/>Input: A = Logical number; X = Device number; Y = Secondary address.
+            <br/>Output: –
+            <br/>Used registers: –
+            <br/>Real address: $FE00.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFBD
+        </div>
+        <div class="c2">65469</div>
+        <div class="c3">SETNAM
+            <br/>Set file name parameters.
+            <br/>Input: A = File name length; X/Y = Pointer to file name.
+            <br/>Output: –
+            <br/>Used registers: –
+            <br/>Real address: $FDF9.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFC0
+        </div>
+        <div class="c2">65472</div>
+        <div class="c3">OPEN
+            <br/>Open file. (Must call SETLFS and SETNAM beforehands.)
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: ($031A), $F34A.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFC3
+        </div>
+        <div class="c2">65475</div>
+        <div class="c3">CLOSE
+            <br/>Close file.
+            <br/>Input: A = Logical number.
+            <br/>Output: –
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: ($031C), $F291.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFC6
+        </div>
+        <div class="c2">65478</div>
+        <div class="c3">CHKIN
+            <br/>Define file as default input. (Must call OPEN beforehands.)
+            <br/>Input: X = Logical number.
+            <br/>Output: –
+            <br/>Used registers: A, X.
+            <br/>Real address: ($031E), $F20E.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFC9
+        </div>
+        <div class="c2">65481</div>
+        <div class="c3">CHKOUT
+            <br/>Define file as default output. (Must call OPEN beforehands.)
+            <br/>Input: X = Logical number.
+            <br/>Output: –
+            <br/>Used registers: A, X.
+            <br/>Real address: ($0320), $F250.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFCC
+        </div>
+        <div class="c2">65484</div>
+        <div class="c3">CLRCHN
+            <br/>Close default input/output files (for serial bus, send UNTALK and/or UNLISTEN); restore default input/output to keyboard/screen.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A, X.
+            <br/>Real address: ($0322), $F333.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFCF
+        </div>
+        <div class="c2">65487</div>
+        <div class="c3">CHRIN
+            <br/>Read byte from default input (for keyboard, read a line from the screen). (If not keyboard, must call OPEN and CHKIN beforehands.)
+            <br/>Input: –
+            <br/>Output: A = Byte read.
+            <br/>Used registers: A, Y.
+            <br/>Real address: ($0324), $F157.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFD2
+        </div>
+        <div class="c2">65490</div>
+        <div class="c3">CHROUT
+            <br/>Write byte to default output. (If not screen, must call OPEN and CHKOUT beforehands.)
+            <br/>Input: A = Byte to write.
+            <br/>Output: –
+            <br/>Used registers: –
+            <br/>Real address: ($0326), $F1CA.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFD5
+        </div>
+        <div class="c2">65493</div>
+        <div class="c3">LOAD
+            <br/>Load or verify file. (Must call SETLFS and SETNAM beforehands.)
+            <br/>Input: A: 0 = Load, 1-255 = Verify; X/Y = Load address (if secondary address = 0).
+            <br/>Output: Carry: 0 = No errors, 1 = Error; A = KERNAL error code (if Carry = 1); X/Y = Address of last byte loaded/verified (if Carry = 0).
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: $F49E.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFD8
+        </div>
+        <div class="c2">65496</div>
+        <div class="c3">SAVE
+            <br/>Save file. (Must call SETLFS and SETNAM beforehands.)
+            <br/>Input: A = Address of zero page register holding start address of memory area to save; X/Y = End address of memory area plus 1.
+            <br/>Output: Carry: 0 = No errors, 1 = Error; A = KERNAL error code (if Carry = 1).
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: $F5DD.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFDB
+        </div>
+        <div class="c2">65499</div>
+        <div class="c3">SETTIM
+            <br/>Set Time of Day, at memory address $00A0-$00A2.
+            <br/>Input: A/X/Y = New TOD value.
+            <br/>Output: –
+            <br/>Used registers: –
+            <br/>Real address: $F6E4.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFDE
+        </div>
+        <div class="c2">65502</div>
+        <div class="c3">RDTIM
+            <br/>Read Time of Day, at memory address $00A0-$00A2.
+            <br/>Input: –
+            <br/>Output: A/X/Y = Current TOD value.
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: $F6DD.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFE1
+        </div>
+        <div class="c2">65505</div>
+        <div class="c3">STOP
+            <br/>Query Stop key indicator, at memory address $0091; if pressed, call CLRCHN and clear keyboard buffer.
+            <br/>Input: –
+            <br/>Output: Zero: 0 = Not pressed, 1 = Pressed; Carry: 1 = Pressed.
+            <br/>Used registers: A, X.
+            <br/>Real address: ($0328), $F6ED.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFE4
+        </div>
+        <div class="c2">65508</div>
+        <div class="c3">GETIN
+            <br/>Read byte from default input. (If not keyboard, must call OPEN and CHKIN beforehands.)
+            <br/>Input: –
+            <br/>Output: A = Byte read.
+            <br/>Used registers: A, X, Y.
+            <br/>Real address: ($032A), $F13E.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFE7
+        </div>
+        <div class="c2">65511</div>
+        <div class="c3">CLALL
+            <br/>Clear file table; call CLRCHN.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A, X.
+            <br/>Real address: ($032C), $F32F.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFEA
+        </div>
+        <div class="c2">65514</div>
+        <div class="c3">UDTIM
+            <br/>Update Time of Day, at memory address $00A0-$00A2, and Stop key indicator, at memory address $0091.
+            <br/>Input: –
+            <br/>Output: –
+            <br/>Used registers: A, X.
+            <br/>Real address: $F69B.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFED
+        </div>
+        <div class="c2">65517</div>
+        <div class="c3">SCREEN
+            <br/>Fetch number of screen rows and columns.
+            <br/>Input: –
+            <br/>Output: X = Number of columns (40); Y = Number of rows (25).
+            <br/>Used registers: X, Y.
+            <br/>Real address: $E505.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFF0
+        </div>
+        <div class="c2">65520</div>
+        <div class="c3">PLOT
+            <br/>Save or restore cursor position.
+            <br/>Input: Carry: 0 = Restore from input, 1 = Save to output; X = Cursor column (if Carry = 0); Y = Cursor row (if Carry = 0).
+            <br/>Output: X = Cursor column (if Carry = 1); Y = Cursor row (if Carry = 1).
+            <br/>Used registers: X, Y.
+            <br/>Real address: $E50A.
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="c1">$FFF3
+        </div>
+        <div class="c2">65523</div>
+        <div class="c3">IOBASE
+            <br/>Fetch CIA #1 base address.
+            <br/>Input: –
+            <br/>Output: X/Y = CIA #1 base address ($DC00).
+            <br/>Used registers: X, Y.
+            <br/>Real address: $E500.
+        </div>
+    </div>
+
+
+
+
+<!-- end -->
+
+
     <div class="cspan">$FFFA-$FFFF, 65530-65535
         <br>Hardware vectors
-    </div>
     </div>
     <div class="container">
         <div class="c1">$FFFA-$FFFB
@@ -3718,6 +4229,7 @@ ga('send', 'pageview');
 </body>
 <footer>
 Changelog:<br/>
+2018-10-12: Added Kernal functions<br />
 2016-08-31: Corrected wrong value for $D019, minor typo and consistency fixes (thanks to Joe Forster/STA)<br />
 2016-08-01: Initial release, replaced old table structure by CSS flexbox, visual overhaul, added minor missing info<br/>
 <br/>
